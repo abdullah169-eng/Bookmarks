@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="./images/f-icon.png" />
+    <title>Bookmark</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="m-0 p-0">
+    <header class="my-5 text-center">
+      <h1 class="position-relative">Bookmarker</h1>
+    </header>
+    <!-- Form -->
+    <section class="container my-2 p-3">
+      <article class="f-site text-center px-3">
+        <h2 class="my-4">
+          <i class="fa-solid fa-bookmark"></i>
+          Bookmark your favorite sites
+          <i class="fa-solid fa-bookmark"></i>
+        </h2>
+        <article>
+          <div class="my-4 text-start">
+            <label for="siteName" class="form-label fw-bold ms-2">
+              <i class="fa-solid fa-book-bookmark pe-2"></i>Site Name
+            </label>
+            <input
+              oninput="validateInputs(this)"
+              type="text"
+              class="form-control"
+              id="siteName"
+              placeholder="Bookmark Name"
+            />
+          </div>
+          <div class="my-4 text-start">
+            <label for="siteUrl" class="form-label fw-bold ms-2">
+              <i class="fa-solid fa-link pe-2"></i>Site URL
+            </label>
+            <input
+              oninput="validateInputs(this)"
+              type="text"
+              class="form-control"
+              id="siteUrl"
+              placeholder="Website URL"
+            />
+          </div>
+          <button onclick="addSite()" class="btn text-white px-5 mb-4">
+            Submit
+          </button>
+        </article>
+      </article>
+    </section>
+    <!-- Alert -->
+    <section id="alert" class="d-none bg-black bg-opacity-50 position-absolute top-0 start-0 end-0 bottom-0">
+      <article
+        class="d-alert bg-white rounded-3 m-auto px-4 py-3 position-absolute top-50 start-50 translate-middle"
+      >
+        <div class="d-flex py-3 w-100 align-items-baseline">
+          <div class="shape rounded-circle me-2 bg-danger"></div>
+          <div class="shape rounded-circle me-2 bg-warning"></div>
+          <div class="shape rounded-circle me-2 bg-success"></div>
+          <button id="xMark" class="bg-transparent border-0 fs-3 ms-auto">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <h4 class="py-2">
+          Site Name or Url is not valid, Please follow the rules below :
+        </h4>
+        <p>
+          <i class="fa-regular fa-circle-right me-2 text-danger"></i>Site name
+          must contain at least 3 characters
+        </p>
+        <p>
+          <i class="fa-regular fa-circle-right me-2 text-danger"></i>Site URL
+          must be a valid one
+        </p>
+      </article>
+    </section>
+    <!-- Bookmark Display -->
+    <section class="container px-3">
+      <table class="table mt-4 text-center bg-light">
+        <thead>
+          <tr>
+            <th class="text-capitalize">index</th>
+            <th class="text-capitalize">Website Name</th>
+            <th class="text-capitalize">Visit</th>
+            <th class="text-capitalize">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tableContent" class="align-baseline"></tbody>
+      </table>
+    </section>
+    <!-- JS File -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
